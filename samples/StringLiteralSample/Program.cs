@@ -12,6 +12,13 @@ namespace A
         [StringLiteral.Utf8("aαあ亜😊")]
         public static partial System.ReadOnlySpan<byte> M2();
     }
+    
+    partial struct LiteralOnValue
+    {
+        [Utf8("'This is valuable'")]
+        public static partial ReadOnlySpan<byte> M1();
+    }
+
 }
 
 partial class Program
@@ -28,6 +35,7 @@ partial class Program
         write(M2());
         write(A.Literals.M1());
         write(A.Literals.M2());
+        write(A.LiteralOnValue.M1());
 
         static void write(ReadOnlySpan<byte> utf8)
         {
